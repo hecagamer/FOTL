@@ -38,6 +38,12 @@ public class Area
 	{
 		return alegiance;
 	}
+	
+	public String getAlegianceName()
+	{
+		return alegiance.getName();
+	}
+	
 	//Don't use this to change Area alegiance!
 	public void setAlegiance(Clan alegiance) 
 	{

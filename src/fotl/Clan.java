@@ -15,8 +15,30 @@ public class Clan
 		CycleManager.addClan(this);
 	}
 	
+	public String getName() 
+	{
+		return name;
+	}
+
+	
 	private List<Individual> population = new ArrayList<Individual>();
 	
+		public List<Individual> getIndividuals() 
+		{
+			return population;
+		}
+		
+		public String getIndivList()
+		{
+			String tmp = "";
+			for(Individual cat : population)
+			{
+				tmp = tmp + cat.getName() + "\n";
+			}
+			
+			return tmp;
+		}
+		
 		public int getPop()
 		{
 			return population.size();
