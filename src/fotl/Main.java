@@ -18,15 +18,19 @@ public class Main
 		huntPat1.addMember(huntChar);
 		huntPat1.addMember(guardChar);
 		
-		Area Area1 = new Area("Sunning rock", AreaLevel.LEVEL_2);
+		Area area1 = new Area("Sunning rock", AreaLevel.LEVEL_2);
 		
-		huntPat1.setCurentArea(Area1);
+		huntPat1.setCurentArea(area1);
 		
 		huntPat1.hunt();
 		
 		System.out.println(apprChar.getNbPatrols());
 		System.out.println(huntChar.getNbPatrols());
 		System.out.println(guardChar.getNbPatrols());
+		
+		System.out.println(area1.getName());
+		System.out.println(area1.getLevel());
+		System.out.println(area1.getAlegiance());
 	}
 
 }
