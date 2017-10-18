@@ -36,7 +36,7 @@ public class Main
 		
 		System.out.println(area1.getName());
 		System.out.println(area1.getLevel());
-		System.out.println(area1.getAlegianceName());
+		System.out.println(area1.getAllegianceName());
 		
 		
 		System.out.println(clan1.getPop());

@@ -64,15 +64,15 @@ public class Clan
 	//Use this to change Area allegiance!
 		public void addArea(Area a)
 		{
-			if(a.getAlegiance() != null)
-				a.getAlegiance().rmArea(a);
-			a.setAlegiance(this);
+			if(a.getAllegiance() != null)
+				a.getAllegiance().rmArea(a);
+			a.setAllegiance(this);
 			territory.add(a);
 		}
 		
 		public void rmArea(Area a)
 		{
-			a.setAlegiance(null);
+			a.setAllegiance(null);
 			territory.remove(a);
 		}
 		

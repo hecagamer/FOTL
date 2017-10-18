@@ -5,7 +5,7 @@ public class Area
 	private int noHuntCycle;
 	private String name;
 	private AreaLevel level;
-	private Clan alegiance;
+	private Clan allegiance;
 	
 	public Area(String n, AreaLevel l)
 	{
@@ -34,20 +34,20 @@ public class Area
 		level = level.changeLevel(change);
 	}
 
-	public Clan getAlegiance() 
+	public Clan getAllegiance() 
 	{
-		return alegiance;
+		return allegiance;
 	}
 	
-	public String getAlegianceName()
+	public String getAllegianceName()
 	{
-		return alegiance.getName();
+		return allegiance.getName();
 	}
 	
-	//Don't use this to change Area alegiance!
-	public void setAlegiance(Clan alegiance) 
+	//Don't use this to change Area allegiance!
+	public void setAllegiance(Clan allegiance) 
 	{
-		this.alegiance = alegiance;
+		this.allegiance = allegiance;
 	}
 	
 	public void newHuntCycle()
