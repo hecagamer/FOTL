@@ -11,9 +11,20 @@ public abstract class Patrol
 		return members.size();
 	}
 	
+	public String getMemberList()
+	{
+		String tmp = "";
+		for(Individual cat : members)
+		{
+			tmp = tmp + cat.getName() + "\n";
+		}
+		
+		return tmp;
+	}
+	
 	public int addMember(Individual i)
 	{
-		if(i.isInPatrol() == false)
+		if(i.isInPatrol() == false && i.isWounded() == false && i.isDisabled() == false)
 		{
 			members.add(i);
 			i.setInPatrol(true);

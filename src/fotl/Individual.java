@@ -14,7 +14,12 @@ public class Individual
 		nbPatrols = 0; 
 		malnourished = 0;
 		spec = sp;
-		warrior = true;
+		disabled = false;
+		isInPatrol = false; 
+		if(sp == IndivSpecialty.NOVICE)
+			warrior = false;
+		else
+			warrior = true;
 	}
 	
 	public Individual(String n)
@@ -23,7 +28,10 @@ public class Individual
 		recoveryTime = 0;
 		nbPatrols = 0; 
 		malnourished = 0;
+		disabled = false;
+		isInPatrol = false;
 		spec = IndivSpecialty.NOVICE;
+		warrior = false;
 	}
 
 	public void setName(String name) 
@@ -45,6 +53,16 @@ public class Individual
 	{
 		return spec;
 	}
+	
+	public boolean isDisabled() 
+	{
+		return disabled;
+	}
+
+	public void setDisabled(boolean disabled) 
+	{
+		this.disabled = disabled;
+	}
 
 	public int getNbPatrols() 
 	{
@@ -61,6 +79,11 @@ public class Individual
 		nbPatrols++;
 	}
 
+	public void setRecoveryTime(int time)
+	{
+		recoveryTime = time;
+	}
+	
 	public boolean isWounded()
 	{
 		if(recoveryTime == 0)

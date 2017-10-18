@@ -9,9 +9,11 @@ public class Main
 		Individual apprChar = new Individual("Amberpaw");
 		Individual huntChar = new Individual("Lionheart", IndivSpecialty.HUNTER);
 		Individual guardChar = new Individual("Shadowstep", IndivSpecialty.GUARDIAN);
-		Individual disabledChar = new Individual("Adderpaw");
+		Individual disabledChar = new Individual("Whitenose", IndivSpecialty.FIGHTER);
+		Individual woundedChar = new Individual("Adderpaw");
 		
-		//@TODO Set wounded.
+		disabledChar.setDisabled(true);
+		woundedChar.setRecoveryTime(4);
 		
 		PatrolHunting huntPat1 = new PatrolHunting();
 		PatrolHunting huntPat2 = new PatrolHunting();
@@ -25,12 +27,17 @@ public class Main
 		clan1.addMember(huntChar);
 		clan1.addMember(guardChar);
 		clan1.addMember(disabledChar);
+		clan1.addMember(woundedChar);
 		
 		huntPat1.addMember(apprChar);
-		huntPat1.addMember(huntChar);
 		huntPat1.addMember(guardChar);
+		huntPat1.addMember(disabledChar);
 		
-		Area area1 = new Area("Sunning rock", AreaLevel.LEVEL_4);
+		huntPat2.addMember(huntChar);
+		huntPat2.addMember(woundedChar);
+		huntPat2.addMember(guardChar);
+		
+		Area area1 = new Area("Sunning rock", AreaLevel.LEVEL_2);
 		
 		clan1.addArea(area1);
 		
@@ -38,17 +45,25 @@ public class Main
 		
 		System.out.println(area1.getAllegianceName() + " has a population of " + clan1.getPop() + " cats: \n" + clan1.getIndivList());
 		
-		for(int i = 0; i < 10; i++)
+		for(int d = 1; d <= 10; d++)
 		{
 			huntPat1.setCurentArea(area1);
 			
+			System.out.println("Day" + d + "\n");
+			
+			System.out.println("This hunting patrol has " + huntPat1.getQtyMber() + " cats in it: \n" + huntPat1.getMemberList());
+			System.out.println("The other hunting patrol has " + huntPat2.getQtyMber() + " cats in it: \n" + huntPat2.getMemberList());
+			
+			huntPat2.addMember(woundedChar);
+			
 			CycleManager.cycleStart();
-		
+			
 			System.out.println("Today, the patrol has brought back " + huntPat1.getPreyCaught() + " food from " + huntPat1.getCurentArea().getName() + ".");
-		
-			System.out.println("Amberpaw has been on " + apprChar.getNbPatrols() + " patrols that aren't of their specialty.");
-			System.out.println("Lionheart has been on " + huntChar.getNbPatrols() + " patrols that aren't of their specialty.");
-			System.out.println("Shadowstep has been on " + guardChar.getNbPatrols() + " patrols that aren't of their specialty.");
+			
+			for(Individual cat : clan1.getIndividuals())
+			{
+				System.out.println(cat.getName() + " has been on " + cat.getNbPatrols() + " patrols that aren't of their specialty.");
+			}
 			
 			switch(area1.getLevel())
 			{
