@@ -53,14 +53,28 @@ public class Clan
 			return population.size();
 		}
 		
-		public void addMember(Individual i)
+		public int addMember(Individual i)
 		{
-			population.add(i);
+			if(i.isInClan() == false)
+			{
+				population.add(i);
+				i.setInClan(true);
+				return 0;
+			}
+			else
+				return 1;
 		}
 		
-		public void rmMember(Individual i)
+		public int rmMember(Individual i)
 		{
-			population.remove(i);
+			if(i.isInClan() == true)
+			{
+				population.remove(i);
+				i.setInClan(false);
+				return 0;
+			}
+			else
+				return 1;
 		}
 		
 		public Individual[] getMembers()

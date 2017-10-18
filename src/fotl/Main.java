@@ -45,11 +45,12 @@ public class Main
 		
 		System.out.println(area1.getAllegianceName() + " has a population of " + clan1.getPop() + " cats: \n" + clan1.getIndivList());
 		
+		
 		for(int d = 1; d <= 10; d++)
 		{
 			huntPat1.setCurentArea(area1);
 			
-			System.out.println("Day" + d + "\n");
+			System.out.println("Day " + d + "\n");
 			
 			System.out.println("This hunting patrol has " + huntPat1.getQtyMber() + " cats in it: \n" + huntPat1.getMemberList());
 			System.out.println("The other hunting patrol has " + huntPat2.getQtyMber() + " cats in it: \n" + huntPat2.getMemberList());

@@ -3,7 +3,7 @@ package fotl;
 public class Individual 
 {
 	private String name;
-	private boolean disabled, warrior, isInPatrol; 
+	private boolean disabled, warrior, isInPatrol, isInClan; 
 	private int recoveryTime, nbPatrols, malnourished;
 	private IndivSpecialty spec;
 	
@@ -37,6 +37,16 @@ public class Individual
 	public void setName(String name) 
 	{
 		this.name = name;
+	}
+
+	public boolean isInClan() 
+	{
+		return isInClan;
+	}
+
+	public void setInClan(boolean isInClan) 
+	{
+		this.isInClan = isInClan;
 	}
 
 	public void setSpec(IndivSpecialty spec) 
