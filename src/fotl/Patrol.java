@@ -11,9 +11,16 @@ public abstract class Patrol
 		return members.size();
 	}
 	
-	public void addMember(Individual i)
+	public int addMember(Individual i)
 	{
-		members.add(i);
+		if(i.isInPatrol() == false)
+		{
+			members.add(i);
+			i.setInPatrol(true);
+			return 0;
+		}
+		else
+			return 1;
 	}
 	
 	public void rmMember(Individual i)

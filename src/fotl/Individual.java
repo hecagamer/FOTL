@@ -69,12 +69,10 @@ public class Individual
 			return true;
 	}
 
-	
 	public boolean isInPatrol() 
 	{
 		return isInPatrol;
 	}
-	
 
 	public void setInPatrol(boolean isInPatrol) 
 	{

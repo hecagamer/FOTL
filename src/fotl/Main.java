@@ -5,21 +5,26 @@ public class Main
 
 	public static void main(String[] args) 
 	{
-		//@TODO Dynamic variable naming.
-		//@TODO Verify that a cat is not in two patrols at the same time.
+		//@TODO Dynamic variable naming, assign patrols to a clan on creation.
 		Individual apprChar = new Individual("Amberpaw");
 		Individual huntChar = new Individual("Lionheart", IndivSpecialty.HUNTER);
 		Individual guardChar = new Individual("Shadowstep", IndivSpecialty.GUARDIAN);
+		Individual disabledChar = new Individual("Adderpaw");
 		
-		int preyCaught;
+		//@TODO Set wounded.
 		
 		PatrolHunting huntPat1 = new PatrolHunting();
+		PatrolHunting huntPat2 = new PatrolHunting();
 		
 		Clan clan1 = new Clan("Leafclan");
+		
+		clan1.addHuntPat(huntPat1);
+		clan1.addHuntPat(huntPat2);
 		
 		clan1.addMember(apprChar);
 		clan1.addMember(huntChar);
 		clan1.addMember(guardChar);
+		clan1.addMember(disabledChar);
 		
 		huntPat1.addMember(apprChar);
 		huntPat1.addMember(huntChar);
@@ -28,7 +33,6 @@ public class Main
 		Area area1 = new Area("Sunning rock", AreaLevel.LEVEL_4);
 		
 		clan1.addArea(area1);
-		clan1.addHuntPat(huntPat1);
 		
 		CycleManager.addClan(clan1);
 		
