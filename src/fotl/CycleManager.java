@@ -4,11 +4,18 @@ import java.util.ArrayList;
 
 public class CycleManager 
 {
-	private static List<Clan> clansList = new ArrayList<Clan>();
+	//@TODO clansList is not created.
+	public static List<Clan> clansList = new ArrayList<Clan>();
 	
-		public static void addClan(Clan i)
+		public static int addClan(Clan i)
 		{
+			for(Clan cl : clansList)
+			{
+				if(cl == i)
+					return 1;
+			}
 			clansList.add(i);
+			return 0;
 		}
 		
 		public static void rmClan(Clan i)
@@ -16,9 +23,20 @@ public class CycleManager
 			clansList.remove(i);
 		}
 		
-		public static Clan[] getClan()
+		public static List<Clan> getClan()
 		{
-			return clansList.toArray(new Clan[0]);
+			return clansList;
+		}
+		
+		public static String getClanList()
+		{
+			String tmp = "";
+			for(Clan cl : clansList)
+			{
+				tmp = tmp + cl.getName() + "\n";
+			}
+			
+			return tmp;
 		}
 	
 	public static void cycleStart()

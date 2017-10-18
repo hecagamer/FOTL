@@ -3,7 +3,7 @@ package fotl;
 public class Individual 
 {
 	private String name;
-	private boolean disabled, warrior; 
+	private boolean disabled, warrior, isInPatrol; 
 	private int recoveryTime, nbPatrols, malnourished;
 	private IndivSpecialty spec;
 	
@@ -67,5 +67,17 @@ public class Individual
 			return false;
 		else
 			return true;
+	}
+
+	
+	public boolean isInPatrol() 
+	{
+		return isInPatrol;
+	}
+	
+
+	public void setInPatrol(boolean isInPatrol) 
+	{
+		this.isInPatrol = isInPatrol;
 	}
 }

@@ -2,6 +2,8 @@ package fotl;
 
 public class PatrolHunting extends Patrol
 {
+	int preyCaught;
+	
 	private Area curentArea;
 
 	public Area getCurentArea() 
@@ -42,8 +44,13 @@ public class PatrolHunting extends Patrol
 			curentArea.changeLvl(-penalty);
 		}
 		incrementPat(IndivSpecialty.NOVICE, IndivSpecialty.GUARDIAN);
-		//TODO remove!
-		System.out.println(nbKill);
+		
+		preyCaught = nbKill;
 		return nbKill; 
+	}
+	
+	public int getPreyCaught()
+	{
+		return preyCaught;
 	}
 }

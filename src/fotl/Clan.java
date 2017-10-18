@@ -20,15 +20,24 @@ public class Clan
 		return name;
 	}
 
+	public int getFood() 
+	{
+		return food;
+	}
 	
+	public int getDaysSinceLastFed() 
+	{
+		return daysSinceLastFed;
+	}
+
 	private List<Individual> population = new ArrayList<Individual>();
 	
-		public List<Individual> getIndividuals() 
+		public List<Individual> getIndividuals() //retourne une liste.
 		{
 			return population;
 		}
 		
-		public String getIndivList()
+		public String getIndivList() //Retourne une liste écrite des individus.
 		{
 			String tmp = "";
 			for(Individual cat : population)
@@ -90,7 +99,7 @@ public class Clan
 	
 	public String toString()
 	{
-		return name +" "+ food +" "+ daysSinceLastFed;
+		return name + " has " + food + " of food in its storage. They've spent " + daysSinceLastFed + " days without eating.";
 	}
 
 	public void newCycle()
