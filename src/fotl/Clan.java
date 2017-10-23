@@ -131,6 +131,12 @@ public class Clan
 		else
 			daysSinceLastFed = 0;
 		
+		for(Individual cat : population)
+		{
+			if(cat.isWounded())
+				cat.decrRecoveryTime();
+		}
+		
 		for(Area ter : territory)
 		{
 			ter.newHuntCycle();

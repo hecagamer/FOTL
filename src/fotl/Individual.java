@@ -99,6 +99,11 @@ public class Individual
 		recoveryTime = time;
 	}
 	
+	public void decrRecoveryTime()
+	{
+		recoveryTime--;
+	}
+	
 	public boolean isWounded()
 	{
 		if(recoveryTime == 0)

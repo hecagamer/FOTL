@@ -20,6 +20,9 @@ public class ClanTest {
 		clan1 = new Clan("Leafclan");
 		clan2 = new Clan("Lakeclan");
 		
+		CycleManager.addClan(clan1);
+		CycleManager.addClan(clan2);
+		
 		huntPat1 = new PatrolHunting();
 		
 		char1 = new Individual("Smokeweed");
@@ -82,8 +85,19 @@ public class ClanTest {
 	@Test
 	public void testRecoveryTimeDecr()
 	{
+		clan1.addMember(char1);
 		char1.setRecoveryTime(2);
 		
-		assertTrue();
+		assertTrue(char1.getRecoveryTime() == 2);
+		
+		CycleManager.cycleStart();
+		
+		assertTrue(char1.isWounded());
+		assertTrue(char1.getRecoveryTime() == 1);
+		
+		CycleManager.cycleStart();
+		
+		assertFalse(char1.isWounded());
+		assertTrue(char1.getRecoveryTime() == 0);
 	}
 }
