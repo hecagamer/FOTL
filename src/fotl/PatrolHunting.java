@@ -10,6 +10,11 @@ public class PatrolHunting extends Patrol
 	{
 		return curentArea;
 	}
+	
+	public String curentAreaName() 
+	{
+		return curentArea.getName();
+	}
 
 	public void setCurentArea(Area curentArea) 
 	{
@@ -25,6 +30,7 @@ public class PatrolHunting extends Patrol
 		int nbKill = 0;
 		for(Individual chat : members)
 		{
+			chat.incrHuntPatsNb();
 			for(int i=0; i<5; i++)
 			{
 				if(Math.random() <= curentArea.getLevel().getProb())
@@ -43,7 +49,6 @@ public class PatrolHunting extends Patrol
 			int penalty = (nbKill + 1 - curentArea.getLevel().getMaxIn())/2;
 			curentArea.changeLvl(-penalty);
 		}
-		incrementPat(IndivSpecialty.NOVICE, IndivSpecialty.GUARDIAN);
 		
 		preyCaught = nbKill;
 		return nbKill; 

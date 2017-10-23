@@ -43,19 +43,4 @@ public abstract class Patrol
 	{
 		return members.toArray(new Individual[0]);
 	}
-	
-	protected void incrementPat(IndivSpecialty... spec)
-	{
-		for(Individual cat : members)
-		{
-			for(IndivSpecialty _spec : spec)
-			{
-				if(cat.getSpec() == _spec)
-				{
-					cat.incrPatrolNb();
-					break;
-				}
-			}
-		}
-	}
 }

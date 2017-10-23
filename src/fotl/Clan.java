@@ -84,7 +84,12 @@ public class Clan
 		
 	private List<Area> territory = new ArrayList<Area>();
 		
-	//Use this to change Area allegiance!
+		public List<Area> getTerritory() 
+		{
+			return territory;
+		}
+
+		//Use this to change Area allegiance!
 		public void addArea(Area a)
 		{
 			if(a.getAllegiance() != null)
@@ -101,6 +106,16 @@ public class Clan
 		
 	private List<PatrolHunting> huntPats = new ArrayList<PatrolHunting>(); 
 		
+		public List<PatrolHunting> getHuntPats() 
+		{
+			return huntPats;
+		}
+		
+		public int getNumOfHuntPats()
+		{
+			return huntPats.size();
+		}
+
 		public void addHuntPat(PatrolHunting hp)
 		{
 			huntPats.add(hp);
@@ -111,6 +126,19 @@ public class Clan
 			huntPats.remove(hp);
 		}
 	
+		public int assignHuntPat(PatrolHunting hp, Area ter)
+		{
+			for(PatrolHunting huntPat : huntPats)
+			{
+				if(huntPat.getCurentArea() == ter)
+				{
+					return 1;
+				}
+			}
+			hp.setCurentArea(ter);
+			return 0;
+		}
+		
 	public String toString()
 	{
 		return name + " has " + food + " of food in its storage. They've spent " + daysSinceLastFed + " days without eating properly.";
@@ -135,6 +163,14 @@ public class Clan
 		{
 			if(cat.isWounded())
 				cat.decrRecoveryTime();
+			if(cat.getNbBorderPats() == 0 && cat.getNbHuntPats() == 0)
+				cat.setSpec(IndivSpecialty.NOVICE);
+			else if(cat.getNbBorderPats() == 20)
+				cat.setSpec(IndivSpecialty.GUARDIAN);
+			else if(cat.getNbHuntPats() == 20)
+				cat.setSpec(IndivSpecialty.HUNTER);
+			else if((cat.getNbBorderPats() >= 20 && cat.getNbHuntPats() == 25) || (cat.getNbBorderPats() == 25 && cat.getNbHuntPats() >= 25))
+				cat.setSpec(IndivSpecialty.FIGHTER);
 		}
 		
 		for(Area ter : territory)

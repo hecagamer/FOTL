@@ -4,14 +4,34 @@ public class Individual
 {
 	private String name;
 	private boolean disabled, warrior, isInPatrol, isInClan; 
-	private int recoveryTime, nbPatrols, malnourished;
+	private int recoveryTime, nbHuntPats, nbBorderPats, malnourished;
 	private IndivSpecialty spec;
 	
 	public Individual(String n, IndivSpecialty sp)
 	{
 		name = n;
 		recoveryTime = 0;
-		nbPatrols = 0; 
+		switch(sp)
+		{
+		case NOVICE:
+			nbHuntPats = 0;
+			nbBorderPats = 0;
+			break;
+		case FIGHTER:
+			nbHuntPats = 25;
+			nbBorderPats = 25;
+			break;
+		case GUARDIAN:
+			nbHuntPats = 0;
+			nbBorderPats = 20;
+			break;
+		case HUNTER:
+			nbHuntPats = 20;
+			nbBorderPats = 0;
+			break;
+		default:
+			break; 
+		}
 		malnourished = 0;
 		spec = sp;
 		disabled = false;
@@ -26,7 +46,8 @@ public class Individual
 	{
 		name = n;
 		recoveryTime = 0;
-		nbPatrols = 0; 
+		nbHuntPats = 0;
+		nbBorderPats = 0; 
 		malnourished = 0;
 		disabled = false;
 		isInPatrol = false;
@@ -47,8 +68,8 @@ public class Individual
 	public void setInClan(boolean isInClan) 
 	{
 		this.isInClan = isInClan;
-	}
-
+	}	
+	
 	public void setSpec(IndivSpecialty spec) 
 	{
 		this.spec = spec;
@@ -73,20 +94,35 @@ public class Individual
 	{
 		this.disabled = disabled;
 	}
-
-	public int getNbPatrols() 
+	
+	public int getNbHuntPats() 
 	{
-		return nbPatrols;
+		return nbHuntPats;
 	}
 
-	public void setNbPatrols(int nbPatrols) 
+	public void setNbHuntPats(int nbHuntPats) 
 	{
-		this.nbPatrols = nbPatrols;
+		this.nbHuntPats = nbHuntPats;
+	}
+
+	public int getNbBorderPats() 
+	{
+		return nbBorderPats;
+	}
+
+	public void setNbBorderPats(int nbBorderPats) 
+	{
+		this.nbBorderPats = nbBorderPats;
+	}
+
+	public void incrHuntPatsNb()
+	{
+		nbHuntPats++;
 	}
 	
-	public void incrPatrolNb()
+	public void incrBorderPatsNb()
 	{
-		nbPatrols++;
+		nbBorderPats++;
 	}
 	
 	public int getRecoveryTime() 
