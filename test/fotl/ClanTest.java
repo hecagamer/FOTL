@@ -78,4 +78,12 @@ public class ClanTest {
 		
 		assertEquals(0, huntPat1.getQtyMber());
 	}
+
+	@Test
+	public void testRecoveryTimeDecr()
+	{
+		char1.setRecoveryTime(2);
+		
+		assertTrue();
+	}
 }
