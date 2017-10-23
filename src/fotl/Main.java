@@ -6,7 +6,7 @@ public class Main
 	public static void main(String[] args) 
 	{
 		//@TODO Dynamic variable naming, assign patrols to a clan on creation.
-		Individual apprChar = new Individual("Amberpaw");
+		Individual noviceChar = new Individual("Amberwing", IndivSpecialty.NOVICE);
 		Individual huntChar = new Individual("Lionheart", IndivSpecialty.HUNTER);
 		Individual guardChar = new Individual("Shadowstep", IndivSpecialty.GUARDIAN);
 		Individual disabledChar = new Individual("Whitenose", IndivSpecialty.FIGHTER);
@@ -14,6 +14,8 @@ public class Main
 		
 		disabledChar.setDisabled(true);
 		woundedChar.setRecoveryTime(2);
+		
+		noviceChar.setNbHuntPats(18);
 		
 		PatrolHunting huntPat1 = new PatrolHunting();
 		PatrolHunting huntPat2 = new PatrolHunting();
@@ -23,13 +25,13 @@ public class Main
 		clan1.addHuntPat(huntPat1);
 		clan1.addHuntPat(huntPat2);
 		
-		clan1.addMember(apprChar);
+		clan1.addMember(noviceChar);
 		clan1.addMember(huntChar);
 		clan1.addMember(guardChar);
 		clan1.addMember(disabledChar);
 		clan1.addMember(woundedChar);
 		
-		huntPat1.addMember(apprChar);
+		huntPat1.addMember(noviceChar);
 		huntPat1.addMember(guardChar);
 		huntPat1.addMember(disabledChar);
 		
@@ -56,6 +58,8 @@ public class Main
 			clan1.assignHuntPat(huntPat2, area1);
 			
 			System.out.println("Day " + d + "\n");
+			
+			
 			
 			i = 1;
 			
