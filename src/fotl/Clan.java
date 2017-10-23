@@ -113,7 +113,7 @@ public class Clan
 	
 	public String toString()
 	{
-		return name + " has " + food + " of food in its storage. They've spent " + daysSinceLastFed + " days without eating.";
+		return name + " has " + food + " of food in its storage. They've spent " + daysSinceLastFed + " days without eating properly.";
 	}
 
 	public void newCycle()

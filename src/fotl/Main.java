@@ -57,6 +57,9 @@ public class Main
 			
 			huntPat2.addMember(woundedChar);
 			
+			if(woundedChar.isWounded())
+				System.out.println(woundedChar.getName() + " is wounded. The medicine cat estimate that he'll need " + woundedChar.getRecoveryTime() + " days to recover.");
+			
 			CycleManager.cycleStart();
 			
 			System.out.println("Today, the patrol has brought back " + huntPat1.getPreyCaught() + " food from " + huntPat1.getCurentArea().getName() + ".");

@@ -88,6 +88,11 @@ public class Individual
 	{
 		nbPatrols++;
 	}
+	
+	public int getRecoveryTime() 
+	{
+		return recoveryTime;
+	}
 
 	public void setRecoveryTime(int time)
 	{
