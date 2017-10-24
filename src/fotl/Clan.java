@@ -138,7 +138,24 @@ public class Clan
 			hp.setCurentArea(ter);
 			return 0;
 		}
+	
+	private List<PatrolBorder> bordPats = new ArrayList<PatrolBorder>(); 
 		
+		public List<PatrolBorder> getBorderPats()
+		{
+			return bordPats;
+		}
+		
+		public void addBordPat(PatrolBorder bp)
+		{
+			bordPats.add(bp);
+		}
+		
+		public void rmBordPat(PatrolBorder bp)
+		{
+			bordPats.remove(bp);
+		}
+
 	public String toString()
 	{
 		return name + " has " + food + " of food in its storage. They've spent " + daysSinceLastFed + " days without eating properly.";
@@ -149,6 +166,10 @@ public class Clan
 		for(PatrolHunting hunting : huntPats)
 		{
 			food += hunting.hunt();
+		}
+		for(PatrolBorder watch : bordPats)
+		{
+			watch.borderWatch();
 		}
 		food -= population.size();
 		if(food < 0)

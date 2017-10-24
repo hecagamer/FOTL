@@ -11,6 +11,7 @@ public class ClanTest {
 	private Clan clan2;
 	
 	private PatrolHunting huntPat1; 
+	private PatrolBorder bordPat1;
 	
 	private Individual char1;
 	
@@ -24,6 +25,7 @@ public class ClanTest {
 		CycleManager.addClan(clan2);
 		
 		huntPat1 = new PatrolHunting();
+		bordPat1 = new PatrolBorder();
 		
 		char1 = new Individual("Smokeweed");
 		
@@ -99,5 +101,16 @@ public class ClanTest {
 		
 		assertFalse(char1.isWounded());
 		assertTrue(char1.getRecoveryTime() == 0);
+	}
+	
+	@Test
+	public void testLvlUp()
+	{
+		char1.setNbBorderPats(18);
+		char1.setNbHuntPats(18);
+		
+		assertTrue(char1.getSpec() == IndivSpecialty.NOVICE);
+		
+		CycleManager.cycleStart();
 	}
 }
